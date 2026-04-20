@@ -149,13 +149,13 @@ const Slide1Hero = () => {
 
         {/* Meaning Paragraph */}
         <p className="max-w-xl text-base leading-relaxed text-zinc-500 italic">
-          <span className="font-semibold text-zinc-800 not-italic">&ldquo;Ashraya&rdquo;</span> is Sanskrit for{" "}
-          <span className="font-semibold text-zinc-800 not-italic">Refuge &amp; Shelter.</span>{" "}
+          <span className="font-semibold not-italic" style={{ color: CRIMSON }}>&ldquo;Ashraya&rdquo;</span> is Sanskrit for{" "}
+          <span className="font-semibold not-italic" style={{ color: CRIMSON }}>Refuge &amp; Shelter.</span>{" "}
           It&rsquo;s what every student searches for when they step into a new city for the first time — a safe, affordable place to call home. We named our platform after that feeling because that is exactly what we deliver.
         </p>
 
         {/* Search Bar Anchor */}
-        <div className="mt-12 w-full max-w-2xl bg-white border border-zinc-200 rounded-full px-6 py-4 flex items-center justify-between shadow-xl shadow-zinc-100">
+        <div className="mt-12 w-full max-w-2xl bg-white border-2 border-zinc-300 rounded-full px-6 py-4 flex items-center justify-between shadow-lg">
             <span className="flex-1 text-zinc-700 font-medium text-lg text-left select-none overflow-hidden whitespace-nowrap">
               {text}
               <span className="animate-pulse ml-[1px] font-normal text-zinc-950">|</span>
@@ -170,9 +170,12 @@ const Slide1Hero = () => {
 /* ─────────────────────────────────────────────
    SLIDE 2 — Market Landscape (Data + Chart)
 ───────────────────────────────────────────── */
+const NAVY = "#0f172a";
+const TEAL = "#14b8a6";
+
 const marketData = [
-  { name: "Unorganized / Broker-led", value: 85, color: CRIMSON },
-  { name: "Organized / Tech-enabled", value: 15, color: "#14b8a6" },
+  { name: "Traditional / Unorganized", value: 80, color: NAVY },
+  { name: "Managed / Tech-Enabled", value: 20, color: TEAL },
 ];
 
 const ChartTooltip = ({
@@ -198,107 +201,135 @@ const ChartTooltip = ({
   return null;
 };
 
+const dataPillars = [
+  {
+    icon: "📈",
+    title: "The Demand",
+    headline: "Massive Influx of Migrant Students & Professionals",
+    body: "Driven by rising institutional education and corporate employment in Bengaluru.",
+  },
+  {
+    icon: "🔄",
+    title: "The Shift",
+    headline: "Market Moving to Tech-Enabled Co-Living",
+    body: "Industry transition from unorganized, low-quality stays to tech-managed, professional accommodation.",
+  },
+  {
+    icon: "🎯",
+    title: "The Opportunity",
+    headline: "High Rental Yields & Smart Tech Integration",
+    body: "Growing demand for flexible, high-speed, and secure housing environments by 2025.",
+  },
+];
+
 const Slide2Market = () => (
   <SlideWrapper>
     <SectionBadge label="Market Landscape" />
-    <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-      {/* Left — Donut Chart */}
-      <motion.div
-        initial={{ opacity: 0, x: -30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.7 }}
-        className="flex flex-col items-center"
-      >
-        <div className="w-full" style={{ height: 300 }}>
-          <ResponsiveContainer width="100%" height="100%">
-            <PieChart>
-              <Pie
-                data={marketData}
-                cx="50%"
-                cy="50%"
-                innerRadius={80}
-                outerRadius={130}
-                paddingAngle={3}
-                dataKey="value"
-                strokeWidth={0}
-              >
-                {marketData.map((entry, index) => (
-                  <Cell key={index} fill={entry.color} />
-                ))}
-              </Pie>
-              <Tooltip content={<ChartTooltip />} />
-            </PieChart>
-          </ResponsiveContainer>
-        </div>
-
-        {/* Legend */}
-        <div className="flex gap-8 mt-6">
-          {marketData.map((entry) => (
-            <div key={entry.name} className="flex items-center gap-2.5">
-              <div
-                className="w-3 h-3 rounded-full"
-                style={{ background: entry.color }}
-              />
-              <span className="text-sm font-medium" style={{ color: TEXT_MUTED }}>
-                {entry.name}
-              </span>
-            </div>
-          ))}
-        </div>
-      </motion.div>
-
-      {/* Right — Stats */}
-      <motion.div
-        initial={{ opacity: 0, x: 30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.7, delay: 0.15 }}
-        className="flex flex-col space-y-6"
-      >
-        <h2
-          className="text-5xl font-bold tracking-tight leading-tight mb-4"
-          style={{ color: TEXT }}
+    <div className="w-full max-w-7xl flex flex-col items-center">
+      {/* Top Row: Chart + Data Pillars */}
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        {/* Left — Donut Chart */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+          className="flex flex-col items-center"
         >
-          The Bengaluru Student
-          <br />
-          Housing Ecosystem
-        </h2>
+          <div className="w-full" style={{ height: 300 }}>
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie
+                  data={marketData}
+                  cx="50%"
+                  cy="50%"
+                  innerRadius={80}
+                  outerRadius={130}
+                  paddingAngle={3}
+                  dataKey="value"
+                  strokeWidth={0}
+                >
+                  {marketData.map((entry, index) => (
+                    <Cell key={index} fill={entry.color} />
+                  ))}
+                </Pie>
+                <Tooltip content={<ChartTooltip />} />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
 
-        {[
-          {
-            stat: "200,000+",
-            desc: "Annual student influx into Bengaluru",
-            source: "Karnataka Dept. of Higher Education",
-          },
-          { stat: "85%", desc: "Market share currently unorganized & broker-dependent" },
-          { stat: "30%", desc: "Average first-month rent lost to brokerage leakage" },
-        ].map((item, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 + i * 0.12 }}
-            className="p-5 rounded-xl border"
-            style={{ background: BG_SUBTLE, borderColor: BORDER }}
+          {/* Center Label */}
+          <p className="text-xs font-bold uppercase tracking-widest text-zinc-400 -mt-[180px] mb-[140px]">
+            Market Gap
+          </p>
+
+          {/* Legend */}
+          <div className="flex gap-8 mt-4">
+            {marketData.map((entry) => (
+              <div key={entry.name} className="flex items-center gap-2.5">
+                <div
+                  className="w-3 h-3 rounded-full"
+                  style={{ background: entry.color }}
+                />
+                <span className="text-sm font-medium" style={{ color: TEXT_MUTED }}>
+                  {entry.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Right — Headline + Data Pillars */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, delay: 0.15 }}
+          className="flex flex-col space-y-6"
+        >
+          <h2
+            className="text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-2"
+            style={{ color: TEXT }}
           >
-            <div
-              className="text-3xl font-black mb-1"
-              style={{ color: CRIMSON }}
+            The Bengaluru Student
+            <br />
+            Housing Ecosystem
+          </h2>
+
+          {dataPillars.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 + i * 0.12 }}
+              className="p-5 rounded-xl border flex gap-4 items-start"
+              style={{ background: BG_SUBTLE, borderColor: BORDER }}
             >
-              {item.stat}
-            </div>
-            <p className="text-base" style={{ color: TEXT_SEC }}>
-              {item.desc}
-            </p>
-            {item.source && (
-              <p
-                className="text-xs mt-2 italic"
-                style={{ color: TEXT_MUTED }}
-              >
-                Source: {item.source}
-              </p>
-            )}
-          </motion.div>
-        ))}
+              <span className="text-2xl mt-0.5">{item.icon}</span>
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] mb-1" style={{ color: TEAL }}>
+                  {item.title}
+                </p>
+                <p className="text-base font-semibold leading-snug" style={{ color: TEXT }}>
+                  {item.headline}
+                </p>
+                <p className="text-sm mt-1 leading-relaxed" style={{ color: TEXT_MUTED }}>
+                  {item.body}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Credibility Capsule */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8 }}
+        className="mt-10"
+      >
+        <span className="inline-block bg-zinc-100 px-4 py-1.5 rounded-full text-[10px] text-zinc-500 uppercase tracking-widest font-medium">
+          Source: Bengaluru Rental Landscape Analysis 2025 | Institutional Housing Market Trends
+        </span>
       </motion.div>
     </div>
   </SlideWrapper>
