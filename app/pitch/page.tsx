@@ -174,8 +174,8 @@ const NAVY = "#0f172a";
 const TEAL = "#14b8a6";
 
 const marketData = [
-  { name: "Traditional / Unorganized", value: 80, color: NAVY },
-  { name: "Managed / Tech-Enabled", value: 20, color: TEAL },
+  { name: "Unorganized Market", value: 80, color: NAVY },
+  { name: "Organized Market", value: 20, color: TEAL },
 ];
 
 const ChartTooltip = ({
@@ -201,32 +201,11 @@ const ChartTooltip = ({
   return null;
 };
 
-const dataPillars = [
-  {
-    icon: "📈",
-    title: "The Demand",
-    headline: "Massive Influx of Migrant Students & Professionals",
-    body: "Driven by rising institutional education and corporate employment in Bengaluru.",
-  },
-  {
-    icon: "🔄",
-    title: "The Shift",
-    headline: "Market Moving to Tech-Enabled Co-Living",
-    body: "Industry transition from unorganized, low-quality stays to tech-managed, professional accommodation.",
-  },
-  {
-    icon: "🎯",
-    title: "The Opportunity",
-    headline: "High Rental Yields & Smart Tech Integration",
-    body: "Growing demand for flexible, high-speed, and secure housing environments by 2025.",
-  },
-];
-
 const Slide2Market = () => (
   <SlideWrapper>
     <SectionBadge label="Market Landscape" />
     <div className="w-full max-w-7xl flex flex-col items-center">
-      {/* Top Row: Chart + Data Pillars */}
+      {/* Top Row: Chart + Content */}
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         {/* Left — Donut Chart */}
         <motion.div
@@ -278,15 +257,15 @@ const Slide2Market = () => (
           </div>
         </motion.div>
 
-        {/* Right — Headline + Data Pillars */}
+        {/* Right — Headline + Breakdown */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
-          className="flex flex-col space-y-6"
+          className="flex flex-col space-y-5"
         >
           <h2
-            className="text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-2"
+            className="text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-1"
             style={{ color: TEXT }}
           >
             The Bengaluru Student
@@ -294,41 +273,84 @@ const Slide2Market = () => (
             Housing Ecosystem
           </h2>
 
-          {dataPillars.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 + i * 0.12 }}
-              className="p-5 rounded-xl border flex gap-4 items-start"
-              style={{ background: BG_SUBTLE, borderColor: BORDER }}
-            >
-              <span className="text-2xl mt-0.5">{item.icon}</span>
-              <div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] mb-1" style={{ color: TEAL }}>
-                  {item.title}
-                </p>
-                <p className="text-base font-semibold leading-snug" style={{ color: TEXT }}>
-                  {item.headline}
-                </p>
-                <p className="text-sm mt-1 leading-relaxed" style={{ color: TEXT_MUTED }}>
-                  {item.body}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+          {/* Hard Data Stats */}
+          <div className="flex flex-wrap gap-4">
+            <div className="flex-1 min-w-[140px] p-4 rounded-xl border" style={{ background: BG_SUBTLE, borderColor: BORDER }}>
+              <p className="text-2xl font-black" style={{ color: CRIMSON }}>1,000+</p>
+              <p className="text-xs font-medium mt-1" style={{ color: TEXT_MUTED }}>Technical Institutes</p>
+            </div>
+            <div className="flex-1 min-w-[140px] p-4 rounded-xl border" style={{ background: BG_SUBTLE, borderColor: BORDER }}>
+              <p className="text-2xl font-black" style={{ color: CRIMSON }}>23 Lakh</p>
+              <p className="text-xs font-medium mt-1" style={{ color: TEXT_MUTED }}>Annual Admissions</p>
+            </div>
+            <div className="flex-1 min-w-[140px] p-4 rounded-xl border" style={{ background: BG_SUBTLE, borderColor: BORDER }}>
+              <p className="text-2xl font-black" style={{ color: CRIMSON }}>2 Lakh+</p>
+              <p className="text-xs font-medium mt-1" style={{ color: TEXT_MUTED }}>Annual Migrant Students</p>
+            </div>
+          </div>
+
+          {/* Organized vs Unorganized */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35 }}
+            className="p-5 rounded-xl border flex gap-4 items-start"
+            style={{ background: `${TEAL}08`, borderColor: `${TEAL}40` }}
+          >
+            <span className="text-xl mt-0.5">🏢</span>
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.2em] mb-1" style={{ color: TEAL }}>
+                Organized — 20%
+              </p>
+              <p className="text-sm leading-relaxed" style={{ color: TEXT_SEC }}>
+                Managed co-living operators like <span className="font-semibold" style={{ color: TEXT }}>Stanza Living</span> & <span className="font-semibold" style={{ color: TEXT }}>Zolo Stays</span>. Corporate-led, standardized, tech-managed accommodation.
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.45 }}
+            className="p-5 rounded-xl border flex gap-4 items-start"
+            style={{ background: `${NAVY}06`, borderColor: `${NAVY}25` }}
+          >
+            <span className="text-xl mt-0.5">🏚️</span>
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.2em] mb-1" style={{ color: NAVY }}>
+                Unorganized — 80%
+              </p>
+              <p className="text-sm leading-relaxed" style={{ color: TEXT_SEC }}>
+                Fractured private PG networks, broker-dependent, lacking transparency, and inefficient admission pipelines. <span className="font-semibold" style={{ color: CRIMSON }}>This is our land-grab.</span>
+              </p>
+            </div>
+          </motion.div>
+
+          {/* The Ashraya Play */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.55 }}
+            className="p-4 rounded-xl border-2 border-dashed"
+            style={{ borderColor: CRIMSON, background: CRIMSON_LIGHT }}
+          >
+            <p className="text-sm font-semibold leading-relaxed" style={{ color: TEXT }}>
+              <span style={{ color: CRIMSON }}>The Ashraya Play:</span>{" "}
+              We are the first &lsquo;Verified Admission Engine&rsquo; focusing specifically on the underserved CIT/GCU corridor, bringing efficiency to the unorganized majority.
+            </p>
+          </motion.div>
         </motion.div>
       </div>
 
-      {/* Credibility Capsule */}
+      {/* Source Capsule */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8 }}
-        className="mt-10"
+        className="mt-8"
       >
         <span className="inline-block bg-zinc-100 px-4 py-1.5 rounded-full text-[10px] text-zinc-500 uppercase tracking-widest font-medium">
-          Source: Bengaluru Rental Landscape Analysis 2025 | Institutional Housing Market Trends
+          Sources: Times of India · AISHE (All India Survey on Higher Education) · Bengaluru Rental Landscape 2025
         </span>
       </motion.div>
     </div>
