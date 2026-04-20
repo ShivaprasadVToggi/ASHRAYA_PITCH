@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-crimson: #E11D48;
+  --color-crimson-light: #fef2f2;
+  --font-sans: var(--font-red-hat), ui-sans-serif, system-ui, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  color: #09090b;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* Carousel dot */
+.carousel-dot {
+  transition: all 0.3s ease;
+}
