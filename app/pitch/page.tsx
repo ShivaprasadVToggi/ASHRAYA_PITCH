@@ -276,16 +276,16 @@ const Slide2Market = () => (
           {/* Hard Data Stats */}
           <div className="flex flex-wrap gap-4">
             <div className="flex-1 min-w-[140px] p-4 rounded-xl border" style={{ background: BG_SUBTLE, borderColor: BORDER }}>
-              <p className="text-2xl font-black" style={{ color: CRIMSON }}>1,000+</p>
-              <p className="text-xs font-medium mt-1" style={{ color: TEXT_MUTED }}>Technical Institutes</p>
+              <p className="text-2xl font-black" style={{ color: CRIMSON }}>1,100+</p>
+              <p className="text-xs font-medium mt-1" style={{ color: TEXT_MUTED }}>Colleges</p>
             </div>
             <div className="flex-1 min-w-[140px] p-4 rounded-xl border" style={{ background: BG_SUBTLE, borderColor: BORDER }}>
-              <p className="text-2xl font-black" style={{ color: CRIMSON }}>23 Lakh</p>
-              <p className="text-xs font-medium mt-1" style={{ color: TEXT_MUTED }}>Annual Admissions</p>
+              <p className="text-2xl font-black" style={{ color: CRIMSON }}>5.1 Lakh</p>
+              <p className="text-xs font-medium mt-1" style={{ color: TEXT_MUTED }}>Total Student Enrollment</p>
             </div>
             <div className="flex-1 min-w-[140px] p-4 rounded-xl border" style={{ background: BG_SUBTLE, borderColor: BORDER }}>
-              <p className="text-2xl font-black" style={{ color: CRIMSON }}>2 Lakh+</p>
-              <p className="text-xs font-medium mt-1" style={{ color: TEXT_MUTED }}>Annual Migrant Students</p>
+              <p className="text-2xl font-black" style={{ color: CRIMSON }}>3.3 Lakh+</p>
+              <p className="text-xs font-medium mt-1" style={{ color: TEXT_MUTED }}>Outstation Students</p>
             </div>
           </div>
 
@@ -303,7 +303,7 @@ const Slide2Market = () => (
                 Organized — 20%
               </p>
               <p className="text-sm leading-relaxed" style={{ color: TEXT_SEC }}>
-                Managed co-living operators like <span className="font-semibold" style={{ color: TEXT }}>Stanza Living</span> & <span className="font-semibold" style={{ color: TEXT }}>Zolo Stays</span>. Corporate-led, standardized, tech-managed accommodation.
+                Managed co-living operators like <span className="font-semibold" style={{ color: TEXT }}>Stanza Living</span> & <span className="font-semibold" style={{ color: TEXT }}>Zolo Stays</span>. Corporate-led, standardized, tech-managed co-living accommodation.
               </p>
             </div>
           </motion.div>
@@ -321,7 +321,7 @@ const Slide2Market = () => (
                 Unorganized — 80%
               </p>
               <p className="text-sm leading-relaxed" style={{ color: TEXT_SEC }}>
-                Fractured private PG networks, broker-dependent, lacking transparency, and inefficient admission pipelines. <span className="font-semibold" style={{ color: CRIMSON }}>This is our land-grab.</span>
+                Fractured private PG networks, broker-dependent, lacking transparency, and inefficient admission pipelines. <span className="font-semibold" style={{ color: TEXT_MUTED }}>~2.7 Lakh migrant students currently live in these hostel/PG networks.</span> <span className="font-semibold" style={{ color: CRIMSON }}>This is our land-grab.</span>
               </p>
             </div>
           </motion.div>
@@ -350,7 +350,7 @@ const Slide2Market = () => (
         className="mt-8"
       >
         <span className="inline-block bg-zinc-100 px-4 py-1.5 rounded-full text-[10px] text-zinc-500 uppercase tracking-widest font-medium">
-          Sources: Times of India · AISHE (All India Survey on Higher Education) · Bengaluru Rental Landscape 2025
+          Sources: AISHE 2021-22, Times of India, Ministry of Education, Bengaluru Rental Landscape 2025
         </span>
       </motion.div>
     </div>
