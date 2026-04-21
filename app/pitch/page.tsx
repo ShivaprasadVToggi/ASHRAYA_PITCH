@@ -11,6 +11,10 @@ import {
   ChevronLeft,
   ChevronRight,
   ImageIcon,
+  Clock,
+  Footprints,
+  Banknote,
+  ShieldAlert,
 } from "lucide-react";
 import {
   PieChart,
@@ -168,7 +172,191 @@ const Slide1Hero = () => {
 };
 
 /* ─────────────────────────────────────────────
-   SLIDE 2 — Market Landscape (Data + Chart)
+   SLIDE 2 — Admission Season Nightmare
+───────────────────────────────────────────── */
+const Slide2Nightmare = () => (
+  <SlideWrapper>
+    <SectionBadge label="The Broken First Mile" />
+    <div className="w-full max-w-7xl flex flex-col items-center">
+      {/* Headline */}
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="text-4xl md:text-5xl font-bold tracking-tight text-center leading-tight mb-2"
+        style={{ color: TEXT }}
+      >
+        The Admission Season Nightmare
+      </motion.h2>
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.15 }}
+        className="text-lg font-medium text-center mb-10"
+        style={{ color: TEXT_MUTED }}
+      >
+        A Broken First Mile for <span style={{ color: CRIMSON }} className="font-semibold">3 Lakh+</span> students every year
+      </motion.p>
+
+      {/* Two-Column Layout */}
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        {/* LEFT — Physical & Mental Toll */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="p-7 rounded-2xl border flex flex-col"
+          style={{ background: BG_SUBTLE, borderColor: BORDER }}
+        >
+          <div className="flex items-center gap-3 mb-5">
+            <div
+              className="w-10 h-10 rounded-full flex items-center justify-center"
+              style={{ background: `${CRIMSON}12`, border: `1.5px solid ${CRIMSON}30` }}
+            >
+              <Clock className="w-5 h-5" style={{ color: CRIMSON }} />
+            </div>
+            <h3 className="text-lg font-bold" style={{ color: TEXT }}>
+              The Exhaustion of &lsquo;Roaming&rsquo;
+            </h3>
+          </div>
+
+          {/* Hero Metric */}
+          <div className="flex items-baseline gap-3 mb-4">
+            <span className="text-5xl font-black" style={{ color: CRIMSON }}>15+</span>
+            <span className="text-lg font-semibold" style={{ color: TEXT_SEC }}>Hours Wasted</span>
+          </div>
+          <p className="text-sm leading-relaxed mb-5" style={{ color: TEXT_SEC }}>
+            Navigating opaque listings during admission week — students visit{" "}
+            <span className="font-semibold" style={{ color: TEXT }}>10–15 properties physically</span>{" "}
+            due to widespread &lsquo;Catfishing&rsquo;.
+          </p>
+
+          {/* Catfishing Callout */}
+          <div
+            className="p-4 rounded-xl border-l-[3px] flex items-start gap-3"
+            style={{ background: `${CRIMSON}06`, borderColor: CRIMSON }}
+          >
+            <Footprints className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: CRIMSON }} />
+            <p className="text-xs leading-relaxed" style={{ color: TEXT_SEC }}>
+              <span className="font-bold" style={{ color: CRIMSON }}>90% of online photos</span>{" "}
+              are misleading or outdated — what you see is never what you get.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* RIGHT — Financial Leakage */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="p-7 rounded-2xl border flex flex-col"
+          style={{ background: BG_SUBTLE, borderColor: BORDER }}
+        >
+          <div className="flex items-center gap-3 mb-5">
+            <div
+              className="w-10 h-10 rounded-full flex items-center justify-center"
+              style={{ background: `${CRIMSON}12`, border: `1.5px solid ${CRIMSON}30` }}
+            >
+              <Banknote className="w-5 h-5" style={{ color: CRIMSON }} />
+            </div>
+            <h3 className="text-lg font-bold" style={{ color: TEXT }}>
+              The Hidden &lsquo;Capital Shock&rsquo;
+            </h3>
+          </div>
+
+          <div className="space-y-4">
+            {/* Bullet 1 */}
+            <div className="flex items-start gap-3">
+              <span
+                className="mt-2 w-2 h-2 rounded-full flex-shrink-0"
+                style={{ background: CRIMSON }}
+              />
+              <div>
+                <p className="text-sm font-bold" style={{ color: TEXT }}>
+                  Brokerage Trap
+                </p>
+                <p className="text-xs leading-relaxed mt-0.5" style={{ color: TEXT_SEC }}>
+                  1 month&apos;s rent lost to &lsquo;take-it-or-leave-it&rsquo; local brokers — a non-negotiable entry fee.
+                </p>
+              </div>
+            </div>
+
+            {/* Bullet 2 */}
+            <div className="flex items-start gap-3">
+              <span
+                className="mt-2 w-2 h-2 rounded-full flex-shrink-0"
+                style={{ background: CRIMSON }}
+              />
+              <div>
+                <p className="text-sm font-bold" style={{ color: TEXT }}>
+                  The Token Scam
+                </p>
+                <p className="text-xs leading-relaxed mt-0.5" style={{ color: TEXT_SEC }}>
+                  Students paying{" "}
+                  <span className="font-semibold" style={{ color: CRIMSON }}>₹2,000+</span>{" "}
+                  in &lsquo;refundable visitor deposits&rsquo; for fake listings that don&apos;t exist.
+                </p>
+              </div>
+            </div>
+
+            {/* Bullet 3 */}
+            <div className="flex items-start gap-3">
+              <span
+                className="mt-2 w-2 h-2 rounded-full flex-shrink-0"
+                style={{ background: CRIMSON }}
+              />
+              <div>
+                <p className="text-sm font-bold" style={{ color: TEXT }}>
+                  Deposit Deadlock
+                </p>
+                <p className="text-xs leading-relaxed mt-0.5" style={{ color: TEXT_SEC }}>
+                  3–10 months of rent locked in deposits with unfair exit deductions — capital trapped indefinitely.
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Bottom Bar — Structural Gap */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5 }}
+        className="w-full p-5 rounded-2xl border-2 border-dashed flex items-center gap-6"
+        style={{ borderColor: CRIMSON, background: CRIMSON_LIGHT }}
+      >
+        <div className="flex items-center gap-3 flex-shrink-0">
+          <ShieldAlert className="w-7 h-7" style={{ color: CRIMSON }} />
+          <span className="text-3xl font-black" style={{ color: CRIMSON }}>90%</span>
+          <span className="text-sm font-bold uppercase tracking-wider" style={{ color: CRIMSON }}>
+            Supply Gap
+          </span>
+        </div>
+        <div className="h-8 w-px flex-shrink-0" style={{ background: `${CRIMSON}30` }} />
+        <p className="text-sm leading-relaxed" style={{ color: TEXT_SEC }}>
+          Out of <span className="font-semibold" style={{ color: TEXT }}>3.06 Lakh professional students</span>, only 10% get on-campus housing. The remaining{" "}
+          <span className="font-semibold" style={{ color: CRIMSON }}>90% are forced into unorganized PGs</span>{" "}
+          with poor food, broken Wi-Fi, and safety risks.
+        </p>
+      </motion.div>
+
+      {/* Source Capsule */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.7 }}
+        className="mt-6"
+      >
+        <span className="inline-block bg-zinc-100 px-4 py-1.5 rounded-full text-[10px] text-zinc-500 uppercase tracking-widest font-medium">
+          Sources: AISHE 2021-22, Reddit Community Data, TOI Student Surveys
+        </span>
+      </motion.div>
+    </div>
+  </SlideWrapper>
+);
+
+/* ─────────────────────────────────────────────
+   SLIDE 3 — Market Landscape (Data + Chart)
 ───────────────────────────────────────────── */
 const NAVY = "#0f172a";
 const TEAL = "#14b8a6";
@@ -201,7 +389,7 @@ const ChartTooltip = ({
   return null;
 };
 
-const Slide2Market = () => (
+const Slide3Market = () => (
   <SlideWrapper>
     <SectionBadge label="Market Landscape" />
     <div className="w-full max-w-7xl flex flex-col items-center">
@@ -350,7 +538,7 @@ const Slide2Market = () => (
         className="mt-8"
       >
         <span className="inline-block bg-zinc-100 px-4 py-1.5 rounded-full text-[10px] text-zinc-500 uppercase tracking-widest font-medium">
-          Sources: AISHE 2021-22, Times of India, Ministry of Education, Bengaluru Rental Landscape 2025
+          Sources: AISHE 2021-22, TOI, Reddit Community Data, Stanza Industry Reports
         </span>
       </motion.div>
     </div>
@@ -794,7 +982,8 @@ const Slide7Closing = () => (
 ───────────────────────────────────────────── */
 const slides = [
   Slide1Hero,
-  Slide2Market,
+  Slide2Nightmare,
+  Slide3Market,
   Slide3Problem,
   Slide4Solution,
   Slide5Carousel,
@@ -804,6 +993,7 @@ const slides = [
 
 const SLIDE_LABELS = [
   "Brand",
+  "Nightmare",
   "Market",
   "Problem",
   "Solution",
