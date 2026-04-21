@@ -15,6 +15,7 @@ import {
   Footprints,
   Banknote,
   ShieldAlert,
+  TrendingDown,
 } from "lucide-react";
 import {
   PieChart,
@@ -546,71 +547,119 @@ const Slide3Market = () => (
 );
 
 /* ─────────────────────────────────────────────
-   SLIDE 3 — The Problem (Quote Style)
+   SLIDE 3 — The Property Owner's Admission Gap
 ───────────────────────────────────────────── */
+const ownerInsights = [
+  {
+    icon: Search,
+    title: "The Visibility Void",
+    headline: "Over 95% of high-quality PGs lack a digital presence.",
+    body: "Despite 98% of students searching online, these PGs remain invisible to the high-intent student market.",
+  },
+  {
+    icon: TrendingDown,
+    title: "The Brokerage Drain",
+    headline: "High Acquisition Costs.",
+    body: "Operators lose 15-20% of annual revenue to broker commissions and unpredictable walk-in conversions.",
+  },
+  {
+    icon: Clock,
+    title: "The Operational Friction",
+    headline: "Manual Admission Cycles.",
+    body: "Lack of tech-enabled verification leads to high 'No-Show' rates and manual, time-consuming lead management.",
+  },
+];
+
 const Slide3Problem = () => (
   <SlideWrapper>
-    <SectionBadge label="The Problem" />
-    <motion.div
-      initial={{ opacity: 0, scale: 0.97 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.8 }}
-      className="max-w-4xl w-full rounded-2xl p-14 md:p-16 border-l-4 shadow-sm"
-      style={{
-        background: BG_SUBTLE,
-        borderColor: CRIMSON,
-        borderTopWidth: 1,
-        borderRightWidth: 1,
-        borderBottomWidth: 1,
-        borderTopColor: BORDER,
-        borderRightColor: BORDER,
-        borderBottomColor: BORDER,
-      }}
-    >
-      <div className="text-5xl mb-6 leading-none" style={{ color: CRIMSON }}>
-        &ldquo;
-      </div>
-      <h2
-        className="text-4xl md:text-5xl font-bold tracking-tight italic leading-snug mb-10"
+    <SectionBadge label="Supply-Side Gap" />
+    <div className="w-full max-w-7xl flex flex-col items-center">
+      {/* Heading */}
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-4xl md:text-5xl font-bold tracking-tight text-center leading-tight mb-3"
         style={{ color: TEXT }}
       >
-        The Trust Deficit in&nbsp;Urban&nbsp;Housing
-      </h2>
+        The Property Owner&rsquo;s Admission Gap
+      </motion.h2>
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.15 }}
+        className="text-lg font-medium text-center mb-12"
+        style={{ color: TEXT_MUTED }}
+      >
+        Why quality PG operators are{" "}
+        <span style={{ color: CRIMSON }} className="font-semibold">
+          losing students
+        </span>{" "}
+        they should be winning
+      </motion.p>
 
-      <div className="space-y-6">
-        {[
-          {
-            label: "Catfishing",
-            body: "Online photos vs. ground reality — 8/10 students surveyed reported mismatched conditions on arrival.",
-          },
-          {
-            label: "Brokerage Trap",
-            body: "High entry barriers inflate cost-of-living, pricing students out before the semester begins.",
-          },
-          {
-            label: "Admission Friction",
-            body: "No verified pipeline forces students to roam city corridors during their most critical academic days.",
-          },
-        ].map((item, i) => (
+      {/* 3 Insight Cards */}
+      <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        {ownerInsights.map((insight, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, x: -15 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.35 + i * 0.12 }}
-            className="flex items-start gap-4"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 + i * 0.18, ease: [0.22, 1, 0.36, 1] }}
+            className="relative rounded-2xl p-7 border shadow-sm flex flex-col"
+            style={{
+              background: BG_SUBTLE,
+              borderColor: BORDER,
+              borderLeftWidth: 3,
+              borderLeftColor: CRIMSON,
+            }}
           >
-            <span
-              className="mt-2.5 w-2 h-2 rounded-full flex-shrink-0"
-              style={{ background: CRIMSON }}
-            />
-            <p className="text-lg leading-relaxed" style={{ color: TEXT_SEC }}>
-              <strong style={{ color: TEXT }}>{item.label}:</strong>{" "}
-              {item.body}
+            {/* Icon Circle */}
+            <div
+              className="w-12 h-12 rounded-full flex items-center justify-center mb-5"
+              style={{ background: `${CRIMSON}10`, border: `1.5px solid ${CRIMSON}25` }}
+            >
+              <insight.icon className="w-5 h-5" style={{ color: CRIMSON }} />
+            </div>
+
+            {/* Card Title */}
+            <p
+              className="text-[10px] font-bold uppercase tracking-[0.2em] mb-2"
+              style={{ color: CRIMSON }}
+            >
+              {insight.title}
+            </p>
+
+            {/* Headline */}
+            <h3
+              className="text-xl font-bold leading-snug mb-3"
+              style={{ color: TEXT }}
+            >
+              {insight.headline}
+            </h3>
+
+            {/* Body */}
+            <p
+              className="text-sm leading-relaxed flex-1"
+              style={{ color: TEXT_SEC }}
+            >
+              {insight.body}
             </p>
           </motion.div>
         ))}
       </div>
-    </motion.div>
+
+      {/* Source Footer */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.85 }}
+      >
+        <span className="inline-block bg-zinc-100 px-4 py-1.5 rounded-full text-[10px] text-zinc-500 uppercase tracking-widest font-medium">
+          Source: Bengaluru PG Rental Landscape Analysis 2025 | Colliers Research
+        </span>
+      </motion.div>
+    </div>
   </SlideWrapper>
 );
 
@@ -995,7 +1044,7 @@ const SLIDE_LABELS = [
   "Brand",
   "Nightmare",
   "Market",
-  "Problem",
+  "Owner Gap",
   "Solution",
   "Properties",
   "Traction",
